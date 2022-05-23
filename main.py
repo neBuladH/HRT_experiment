@@ -4,6 +4,20 @@ import huang_kavitha as hk
 import os
 import time
 
+
+####################################
+#
+# Créer instance : creer_fichiers(nb_formations, nb_candidats, nb_voeux_moy, p_ties, nb_instances, directory)
+#
+# Utiliser un algorithme sur une instance : test_instance("instances/nom_fichier.txt", nb)
+#			- nb = 1 -> Gale-Shapley (aléatoire)
+#			- nb = 2 -> Gale-Shapley (popularité)
+#			- nb = 3 -> Gale-Shapley (impopularité)
+#			- nb = 4 -> Huang-Kavitha
+#			- nb = 5 -> Gale-Shapley (remplissage)
+#
+####################################
+
 def creer_fichiers(nb_formations = 100, nb_candidats = 10000, nb_voeux_moy = 8, p_ties = 0.05, nb_instances = 1, directory = "instances"):
 	return ig.generate_instance(nb_formations, nb_candidats, nb_voeux_moy, p_ties, nb_instances, directory)
 
@@ -74,12 +88,12 @@ def test_satis(fichier):
 			cpt_m_sat += 1
 	print("Candidats moins satisfaits :", cpt_m_sat)
 	print("Candidats plus satisfaits :", cpt_p_sat)
-"""
-for inst in sorted(os.listdir("instances/exp_nb_voeux")):
+
+for inst in ["1000_100000_10_12_1.txt","1000_100000_10_12_2.txt","1000_100000_10_12_3.txt","1000_100000_10_12_4.txt","1000_100000_10_12_5.txt"]#sorted(os.listdir("instances/exp_nb_voeux")):
 	print("===============================")
 	print(inst)
 	print("===============================")
-	fichier = "instances/exp_nb_voeux/" + inst
+	fichier = "instances/" + inst
 	cpt = 0
 	for i in range(10):
 		cpt += test_instance(fichier, 1)
@@ -89,7 +103,7 @@ for inst in sorted(os.listdir("instances/exp_nb_voeux")):
 	test_instance(fichier, 3)
 	test_instance(fichier, 5)
 	#test_instance(fichier, 4)
-"""
+
 
 c,f = ig.parser_fichier("instances/50_5000_10_3.txt")
 gs.gale_shapley_remplissage(c,f)

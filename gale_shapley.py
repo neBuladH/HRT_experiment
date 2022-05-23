@@ -5,10 +5,10 @@ import random
 
 # les formations à égalité sont ordonnées de façon aléatoire
 def gale_shapley(candidats, formations):
-	t = [0] * len(formations)
-	nb_affectes = [0] * len(formations)
-	M = {}
-	affectations = 0
+	t = [0] * len(formations) 			# Position du prochain candidat à appeler pour chaque formation
+	nb_affectes = [0] * len(formations) # Nombre d'affectés dans chaque formation
+	M = {}								# Matching final
+	affectations = 0					# Nombre global d'affectations
 
 	## PREPROCESSING : CASSAGE DES EGALITES
 
@@ -62,13 +62,10 @@ def gale_shapley(candidats, formations):
 
 # les formations à égalité sont ordonnées selon leur popularité (les moins populaires sont favorisées)
 def gale_shapley_moins_pop(candidats, formations):
-	t = [0] * len(formations)
-	nb_affectes = [0] * len(formations)
-	meme_rang = [None] * len(candidats)
-	for i in range(len(meme_rang)):
-		meme_rang[i] = []
-	M = {}
-	affectations = 0
+	t = [0] * len(formations)			# Position du prochain candidat à appeler pour chaque formation
+	nb_affectes = [0] * len(formations) # Nombre d'affectés dans chaque formation
+	M = {}								# Matching final
+	affectations = 0					# Nombre global d'affectations
 
 	## PREPROCESSING : CASSAGE DES EGALITES
 
@@ -128,13 +125,10 @@ def gale_shapley_moins_pop(candidats, formations):
 
 # les formations à égalité sont ordonnées selon leur popularité (les plus populaires sont favorisées)
 def gale_shapley_plus_pop(candidats, formations):
-	t = [0] * len(formations)
-	nb_affectes = [0] * len(formations)
-	meme_rang = [None] * len(candidats)
-	for i in range(len(meme_rang)):
-		meme_rang[i] = []
-	M = {}
-	affectations = 0
+	t = [0] * len(formations)			# Position du prochain candidat à appeler pour chaque formation
+	nb_affectes = [0] * len(formations) # Nombre d'affectés dans chaque formation
+	M = {}								# Matching final
+	affectations = 0					# Nombre global d'affectations
 
 	## PREPROCESSING : CASSAGE DES EGALITES
 
@@ -188,13 +182,10 @@ def gale_shapley_plus_pop(candidats, formations):
 
 # les formations à égalité sont ordonnées selon leur remplissage courant (les moins remplies sont favorisées)
 def gale_shapley_remplissage(candidats, formations):
-	t = [0] * len(formations)
-	nb_affectes = [0] * len(formations)
-	meme_rang = [None] * len(candidats)
-	for i in range(len(meme_rang)):
-		meme_rang[i] = []
-	M = {}
-	affectations = 0
+	t = [0] * len(formations)			# Position du prochain candidat à appeler pour chaque formation
+	nb_affectes = [0] * len(formations) # Nombre d'affectés dans chaque formation
+	M = {}								# Matching final
+	affectations = 0					# Nombre global d'affectations
 
 	f = formations[0]
 
